@@ -1,0 +1,17 @@
+
+http://chrisvnicholson.github.io/404.html
+http://chrisvnicholson.github.io/about.html
+http://chrisvnicholson.github.io/archive.html
+http://chrisvnicholson.github.io/atom.xml
+http://chrisvnicholson.github.io/categories.html
+http://chrisvnicholson.github.io/gettingstarted.html
+http://chrisvnicholson.github.io/index.html
+http://chrisvnicholson.github.io/index.html
+http://chrisvnicholson.github.io/operations.html
+http://chrisvnicholson.github.io/pages.html
+http://chrisvnicholson.github.io/rss.xml
+http://chrisvnicholson.github.io/sitemap.txt
+http://chrisvnicholson.github.io/tags.html
+
+http://chrisvnicholson.github.io/2014/08/30/hello-world
+http://chrisvnicholson.github.io/lessons/2011/12/29/jekyll-introduction

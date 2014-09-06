@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Getting Started &middot; ND4J
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="public/css/poole.css">
+  <link rel="stylesheet" href="public/css/syntax.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="atom.xml">
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <div class="masthead">
+        <h3 class="masthead-title">
+          <a href="" title="Home">ND4J</a>
+          <small>Scientific Computing for Java</small>
+        </h3>
+      </div>
+
+      <div class="page">
+  <h1 class="page-title">Getting Started</h1>
+  
+<ul>
+  <li>
+    <p>ND4J requires <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">Java 7</a> or above.</p>
+  </li>
+  <li>
+    <p>You can install ND4J either from source or from Maven central. Here are the <strong>source</strong> instructions. </p>
+
+    <pre><code>   git clone https://github.com/agibsonccc/nd4j
+   cd nd4j
+</code></pre>
+  </li>
+</ul>
+
+<h3 id="intellij">IntelliJ</h3>
+
+<ul>
+  <li>
+    <p>To work with ND4J code, you should download the Java IDE IntelliJ. A <a href="http://www.jetbrains.com/idea/download/">free, community edition</a> is available at:</p>
+
+    <pre><code>   http://www.jetbrains.com/idea/download/
+</code></pre>
+  </li>
+  <li>
+    <p>Unzip the download, move it to your applications folder, and open the application. Upon opening, you may be prompted to install a Java SE 6 runtime. If so, install it. </p>
+  </li>
+  <li>
+    <p>As you open IntelliJ, you will have to choose whether to create or open a project. Choose “Open Project” from the menu, and then select the working directory for Deeplearning4j. Mine was “java-deeplearning”. Click the open button for that folder. (It will take a while for all the dependencies to be resolved, during which time you will not be able to run your examples.)</p>
+  </li>
+</ul>
+
+<p><img src="../img/open_project.png" alt="Alt text" /> </p>
+
+<ul>
+  <li>
+    <p>You’ll need to make sure the Maven 2 Integration plugin is installed. On Macs, go to Preferences and then click on Plugins. (On Linux, you’ll find the plugins in Settings.) Then choose “Browse Repositories” and search for “Maven 2 Integration.” Install that plugin and restart IntelliJ. Restarting should take you back to your java-deeplearning project. </p>
+  </li>
+  <li>
+    <p>Click through the folder names to the examples folder – java-deeplearning/deeplearning4j-examples/src/main/java/org/deeplearning4j/example/ – and then right-click on the dataset you’re interested in. (MNIST is where most users start.) There, you will find a number of nets that will run on MNIST. Right click on RBMMnistExample. In the menu that appears, look for the green arrow and choose “Run.” </p>
+  </li>
+</ul>
+
+<p><img src="../img/run_menu.png" alt="Alt text" /></p>
+
+<ul>
+  <li>Any warning messages will appear at the top of the screen. If IntelliJ prompts you to add an SDK, choose JDK.</li>
+</ul>
+
+<h3 id="maven">Maven</h3>
+
+<ul>
+  <li>
+    <p>To check if you have Maven on your machine, type this in the terminal/cmd:</p>
+
+    <pre><code>   mvn --version
+</code></pre>
+  </li>
+  <li>
+    <p>If you have Maven, you’ll see the particular version on your computer, as well as the file path to where it lives. On a Windows PC, my file path was:</p>
+
+    <pre><code>   c:\Programs\maven\bin\..
+</code></pre>
+  </li>
+  <li>
+    <p>If you don’t have Maven, you can follow the installation instructions on Maven’s <a href="https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">“getting started” page</a>. Finally, run this command:</p>
+
+    <pre><code>   mvn clean install -DskipTests
+</code></pre>
+  </li>
+  <li>
+    <p>After you run “mvn clean”, a compressed tar file with a name similar to “deeplearning4j-dist-bin.tar.gz” will be installed in the local folder (This is where you will find the jar files and it’s where compiling happens.):</p>
+
+    <pre><code>  */java-deeplearning/deeplearning4j-distribution/target
+</code></pre>
+  </li>
+  <li>
+    <p>Add the coordinates below to your Project Object Model (POM) file (POM.xml files live in the root of a given directory):</p>
+
+    <pre><code>   &lt;repositories&gt;
+       &lt;repository&gt;
+           &lt;id&gt;snapshots-repo&lt;/id&gt;
+           &lt;url&gt;https://oss.sonatype.org/content/repositories/snapshots&lt;/url&gt;
+           &lt;releases&gt;&lt;enabled&gt;false&lt;/enabled&gt;&lt;/releases&gt;
+           &lt;snapshots&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;/snapshots&gt;
+       &lt;/repository&gt;
+   &lt;/repositories&gt;
+</code></pre>
+  </li>
+  <li>
+    <p>All dependencies should be added after the tags “dependencyManagement” and “dependencies”, and before they close. Add this dependency to your POM file:</p>
+
+    <pre><code>   &lt;dependency&gt;
+      &lt;groupId&gt;org.deeplearning4j&lt;/groupId&gt;
+      &lt;artifactId&gt;deeplearning4j-core&lt;/artifactId&gt;
+      &lt;version&gt;0.0.3.2-SNAPSHOT&lt;/version&gt;
+   &lt;/dependency&gt;
+</code></pre>
+  </li>
+  <li>
+    <p>For multithreaded/clustering support, add this dependency to your POM file:</p>
+
+    <pre><code>   &lt;dependency&gt;
+      &lt;groupId&gt;org.deeplearning4j&lt;/groupId&gt;
+      &lt;artifactId&gt;deeplearning4j-scaleout-akka&lt;/artifactId&gt;
+      &lt;version&gt;0.0.3.2-SNAPSHOT&lt;/version&gt;
+   &lt;/dependency&gt;
+</code></pre>
+  </li>
+  <li>
+    <p>For natural-language processing (NLP), add this dependency to your POM file:</p>
+
+    <pre><code>   &lt;dependency&gt;
+      &lt;groupId&gt;org.deeplearning4j&lt;/groupId&gt;
+      &lt;artifactId&gt;deeplearning4j-scaleout-akka-word2vec&lt;/artifactId&gt;
+      &lt;version&gt;0.0.3.2-SNAPSHOT&lt;/version&gt;
+   &lt;/dependency&gt;
+</code></pre>
+  </li>
+  <li>
+    <p>To locally install Jcublas, which does linear algebra for GPUs, first enter these commands:</p>
+
+    <pre><code>  git clone git@github.com:MysterionRise/mavenized-jcuda.git
+  cd mavenized-jcuda &amp;&amp; mvn clean install -DskipTests
+</code></pre>
+
+    <p>Then include linear-algebra-jcublas in your POM:</p>
+
+    <pre><code>     &lt;dependency&gt;
+       &lt;groupId&gt;org.deeplearning4j&lt;/groupId&gt;
+       &lt;artifactId&gt;linear-algebra-jcublas&lt;/artifactId&gt;
+       &lt;version&gt;0.0.3.2-SNAPSHOT&lt;/version&gt;
+     &lt;/dependency&gt;
+</code></pre>
+  </li>
+</ul>
+
+<p>For the moment, the installation is throwing errors related to Jcublas. (We’re working on it :) GPU integration is being completed. The final two steps for Jcublas are only for building the software. </p>
+
+<p><strong>NEXT STEP</strong>: </p>
+
+<p><strong>The curious</strong> will want to examine our <a href="https://github.com/agibsonccc/nd4j">Github repo</a> or access the core through <a href="http://maven.apache.org/download.cgi">Maven</a>.</p>
+
+</div>
+
+
+      <div class="footer">
+        <p>
+          &copy; 2014. All rights reserved.
+        </p>
+      </div>
+    </div>
+
+  </body>
+</html>
