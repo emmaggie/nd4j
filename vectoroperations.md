@@ -48,6 +48,6 @@ In ND4J, row vectors and column vectors look the same when you print them out wi
 
 They will appear like this.
 
-[5.0 ,6.0]
+        [5.0 ,6.0]
 
 Don't be fooled. Getting the parameters right at the beginning is crucial. addRowVector and addColumnVector will not produce different results when using the same initial vector, because they do not change a vector's orientation as row or column. 
