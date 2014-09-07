@@ -21,7 +21,7 @@ you'll see this
     [2.0 ,4.0]
     ]
 
-A matrix with two rows and two columns, which orders its elements by column. 
+A matrix with two rows and two columns, which orders its elements by column and which we'll call matrix A. 
 
 A matrix that ordered its elements by row would look like this:
 
@@ -68,3 +68,92 @@ If you perform all these operations on your initial 2 x 2 matrix, you should end
     [6.0 ,11.0]
     ]
 
+## Elementwise vector operations
+
+When performed with simple units like scalars, the operations of arithmatic are unambiguous. But working with matrices, addition and multiplication can mean several things. With vector-on-matrix operations, you have to know what kind of addition or multiplication you're performing in each case. 
+
+First, we'll create a 2 x 2 matrix, a column vector and a row vector. 
+
+        INDArray nd = Nd4j.create(new float[]{1,2,3,4},new int[]{2,2});
+        INDArray nd2 = Nd4j.create(new float[]{5,6},new int[]{2,1}); //vector as column
+        INDArray nd3 = Nd4j.create(new float[]{5,6},new int[]{2}); //vector as row
+
+Notice that the shape of the two vectors is specified with their final parameters. {2,1} means the vector is vertical, with elements populating two rows and one column. A simple {2} means the vector populates along a single row that spans two columns -- horizontal. You're first matrix will look like this
+
+        [[1.0 ,3.0]
+         [2.0 ,4.0]
+        ]
+
+Here's how you add a column vector to a matrix:
+
+        nd.addiColumnVector(nd2);
+
+And here's the best way to visualize what's happening. The top element of the column vector combines with the top elements of each column in the matrix, and so forth. The sum matrix represents the march of that column vector across the matrix from left to right, adding itself along the way.
+
+
+        [1.0 ,3.0]     [5.0]    [6.0 ,8.0]
+        [2.0 ,4.0]  +  [6.0] =  [8.0 ,10.0]
+        
+But let's say you preserved the initial matrix and instead added a row vector. 
+
+        nd.addiRowVector(nd3);
+
+Then your equation is best visualized like this:
+
+        [1.0 ,3.0]                   [6.0 ,9.0]
+        [2.0 ,4.0]  +  [5.0 ,6.0] =  [7.0 ,10.0]
+
+In this case, the leftmost element of the row vector combines with the leftmost elements of each row in the matrix, and so forth. The sum matrix represents that row vector falling down the matrix from top to bottom, adding itself at each level.
+
+So vector addition can lead to different results depending on the orientation of your vector. The same is true for multiplication, subtraction and division and every other vector operation. 
+
+In ND4J, row vectors and column vectors look the same when you print them out with 
+
+        System.out.println(nd);
+
+They will appear like this.
+
+    [5.0 ,6.0]
+
+Don't be fooled. Getting the parameters right at the beginning is crucial. addRowVector and addColumnVector will not produce different results when using the same initial vector, because they do not change a vector's orientation as row or column. 
+
+## Elementwise matrix operations
+
+To carry out scalar and vector elementwise operations, we basically pretend we have two matrices of equal shape. Elementwise scalar multiplication can be represented several ways. 
+
+            [1.0 ,3.0]   [c , c]   [1.0 ,3.0]   [1c ,3c]
+        c * [2.0 ,4.0] = [c , c] * [2.0 ,4.0] = [2c ,4c]
+        
+So you see, elementwise operations match the elements of one matrix with their precise counterparts in another matrix. The element in row 1, column 1 of matrix A will only be added to the element in row one column one of matrix B. 
+
+This is clearer when we start elementwise vector operations. We imaginee the vector, like the scalar, as populating a matrix of equal dimensions to matrix A. Below, you can see why row and column vectors lead to different sums. 
+
+Column vector:
+
+        [1.0 ,3.0]     [5.0]   [1.0 ,3.0]   [5.0 ,5.0]   [6.0 ,8.0]
+        [2.0 ,4.0]  +  [6.0] = [2.0 ,4.0] + [6.0 ,6.0] = [8.0 ,10.0]
+
+Row vector:
+
+        [1.0 ,3.0]                   [1.0 ,3.0]    [5.0 ,6.0]   [6.0 ,9.0]    
+        [2.0 ,4.0]  +  [5.0 ,6.0] =  [2.0 ,4.0] +  [5.0 ,6.0] = [7.0 ,10.0] 
+
+Given that we've already been doing elementwise matrix operations implicitly with scalars and vectors, it's just a short hop to do them with more varied matrices:
+
+        INDArray nd4 = Nd4j.create(new float[]{5,6,7,8},new int[]{2,2});
+
+        nd.addi(nd4);
+
+Here's how you can visualize that command:
+
+        [1.0 ,3.0]   [5.0 ,7.0]   [6.0 ,10.0]
+        [2.0 ,4.0] + [6.0 ,8.0] = [8.0 ,12.0]
+
+Muliplying the initial matrix nd with matrix nd4 works the same way:
+
+        nd.muli(nd4);
+
+        [1.0 ,3.0]   [5.0 ,7.0]   [5.0 ,21.0]
+        [2.0 ,4.0] * [6.0 ,8.0] = [12.0 ,32.0]
+
+Technically speaking, this is known as a [Hadamard product](https://en.wikipedia.org/wiki/Hadamard_product_(matrices)).
