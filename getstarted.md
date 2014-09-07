@@ -46,9 +46,9 @@ description: ""
 
          mvn clean install -DskipTests
 
-* After you run "mvn clean", a compressed tar file with a name similar to "deeplearning4j-dist-bin.tar.gz" will be installed in the local folder (This is where you will find the jar files and it's where compiling happens.):
+* After you run "mvn clean", a compressed tar file with a name similar to *TKTKTK* --> "nd4j-dist-bin.tar.gz" will be installed in the local folder (This is where you will find the jar files and it's where compiling happens.):
 
-		*/java-deeplearning/deeplearning4j-distribution/target
+		*/nd4j/TKTKTKTKTKTK
 	
 * Add the coordinates below to your Project Object Model (POM) file (POM.xml files live in the root of a given directory):
 
@@ -65,8 +65,8 @@ description: ""
 
          <dependency>
 			<groupId>org.nd4j</groupId>
-			<artifactId>nd4j-core</artifactId>
-			<version>0.0.3.2-SNAPSHOT</version>
+			<artifactId>nd4j</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
          </dependency>
 
 * To locally install Jcublas, which does linear algebra for GPUs, first enter these commands:
@@ -74,12 +74,12 @@ description: ""
 		git clone git@github.com:MysterionRise/mavenized-jcuda.git
 		cd mavenized-jcuda && mvn clean install -DskipTests
 
-  Then include linear-algebra-jcublas in your POM:
+Then include linear-algebra-jcublas in your POM:
 
            <dependency>
-             <groupId>org.deeplearning4j</groupId>
+             <groupId>org.nd4j</groupId>
              <artifactId>linear-algebra-jcublas</artifactId>
-             <version>0.0.3.2-SNAPSHOT</version>
+             <version>0.0.1-SNAPSHOT</version>
            </dependency>
 
 For the moment, the installation is throwing errors related to Jcublas. (We're working on it :) GPU integration is being completed. The final two steps for Jcublas are only for building the software. 
