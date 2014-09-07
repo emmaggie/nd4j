@@ -21,7 +21,7 @@ you'll see this
     [2.0 ,4.0]
     ]
 
-A matrix with two rows and two columns, which orders its elements by column and which we'll call matrix A. 
+A matrix with two rows and two columns, which orders its elements by column and which we'll call matrix nd. 
 
 A matrix that ordered its elements by row would look like this:
 
@@ -124,9 +124,9 @@ To carry out scalar and vector elementwise operations, we basically pretend we h
             [1.0 ,3.0]   [c , c]   [1.0 ,3.0]   [1c ,3c]
         c * [2.0 ,4.0] = [c , c] * [2.0 ,4.0] = [2c ,4c]
         
-So you see, elementwise operations match the elements of one matrix with their precise counterparts in another matrix. The element in row 1, column 1 of matrix A will only be added to the element in row one column one of matrix B. 
+So you see, elementwise operations match the elements of one matrix with their precise counterparts in another matrix. The element in row 1, column 1 of matrix nd will only be added to the element in row one column one of matrix c. 
 
-This is clearer when we start elementwise vector operations. We imaginee the vector, like the scalar, as populating a matrix of equal dimensions to matrix A. Below, you can see why row and column vectors lead to different sums. 
+This is clearer when we start elementwise vector operations. We imaginee the vector, like the scalar, as populating a matrix of equal dimensions to matrix nd. Below, you can see why row and column vectors lead to different sums. 
 
 Column vector:
 
