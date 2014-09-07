@@ -64,25 +64,9 @@ description: ""
 * All dependencies should be added after the tags "dependencyManagement" and "dependencies", and before they close. Add this dependency to your POM file:
 
          <dependency>
-			<groupId>org.deeplearning4j</groupId>
-			<artifactId>deeplearning4j-core</artifactId>
+			<groupId>org.nd4j</groupId>
+			<artifactId>nd4j-core</artifactId>
 			<version>0.0.3.2-SNAPSHOT</version>
-		 </dependency>
-
-* For multithreaded/clustering support, add this dependency to your POM file:
-
-         <dependency>
-			<groupId>org.deeplearning4j</groupId>
-			<artifactId>deeplearning4j-scaleout-akka</artifactId>
-			<version>0.0.3.2-SNAPSHOT</version>
-         </dependency>
-
-* For natural-language processing (NLP), add this dependency to your POM file:
-         
-         <dependency>
-            <groupId>org.deeplearning4j</groupId>
-            <artifactId>deeplearning4j-scaleout-akka-word2vec</artifactId>
-            <version>0.0.3.2-SNAPSHOT</version>
          </dependency>
 
 * To locally install Jcublas, which does linear algebra for GPUs, first enter these commands:
