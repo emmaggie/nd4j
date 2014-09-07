@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Elementwise Scalar Operations"
+title: "Elementwise Operations"
 description: ""
 ---
 {% include JB/setup %}
@@ -29,9 +29,11 @@ A matrix that ordered its elements by row would look like this:
     [3.0 ,4.0]
     ]
 
+## Elementwise scalar operations
+
 The simplest operations you can perform on a matrix are elementwise scalar operations; for example, adding the scalar 1 to each element of the matrix, or multiplying each element by the scalar 5. Let's try it. 
 
-    nd.addi(1);
+    nd.add(1);
 
 This line of code represents this operation:
 
@@ -39,17 +41,17 @@ This line of code represents this operation:
     [2.0 + 1,4.0 + 1]
     ]
 
-which will appear like this
+and here is the result
 
     [[2.0 ,4.0]
     [3.0 ,5.0]
     ]
 
-The "i" in nd.addi means this operation is performed "in place," directly on the data, which is to say it is destructive. nd.add() would simply perform scalar addition on a copy of the data and leave the original untouched. 
+There are two ways to perform any operation in ND4J, destructive and nondestructive; i.e. operations that change the underlying data, or operations that simply work with a copy of the data. Destructive operations will have an "i" at the end -- addi, subi, muli, divi.  The "i" means the operation is performed "in place," directly on the data rather than a copy, while nd.add() leaves the original untouched. 
 
 Elementwise scalar multiplication looks like this:
 
-    nd.muli(5);
+    nd.mul(5);
 
 And produces this:
 
@@ -86,7 +88,7 @@ Notice that the shape of the two vectors is specified with their final parameter
 
 Here's how you add a column vector to a matrix:
 
-        nd.addiColumnVector(nd2);
+        nd.addColumnVector(nd2);
 
 And here's the best way to visualize what's happening. The top element of the column vector combines with the top elements of each column in the matrix, and so forth. The sum matrix represents the march of that column vector across the matrix from left to right, adding itself along the way.
 
@@ -96,7 +98,7 @@ And here's the best way to visualize what's happening. The top element of the co
         
 But let's say you preserved the initial matrix and instead added a row vector. 
 
-        nd.addiRowVector(nd3);
+        nd.addRowVector(nd3);
 
 Then your equation is best visualized like this:
 
@@ -138,11 +140,13 @@ Row vector:
         [1.0 ,3.0]                   [1.0 ,3.0]    [5.0 ,6.0]   [6.0 ,9.0]    
         [2.0 ,4.0]  +  [5.0 ,6.0] =  [2.0 ,4.0] +  [5.0 ,6.0] = [7.0 ,10.0] 
 
-Given that we've already been doing elementwise matrix operations implicitly with scalars and vectors, it's just a short hop to do them with more varied matrices:
+Now you can see why row vectors and column vectors produce different results. They are simply shorthand for different matrices. 
+
+Given that we've already been doing elementwise matrix operations implicitly with scalars and vectors, it's a short hop to do them with more varied matrices:
 
         INDArray nd4 = Nd4j.create(new float[]{5,6,7,8},new int[]{2,2});
 
-        nd.addi(nd4);
+        nd.add(nd4);
 
 Here's how you can visualize that command:
 
@@ -156,4 +160,8 @@ Muliplying the initial matrix nd with matrix nd4 works the same way:
         [1.0 ,3.0]   [5.0 ,7.0]   [5.0 ,21.0]
         [2.0 ,4.0] * [6.0 ,8.0] = [12.0 ,32.0]
 
-Technically speaking, this is known as a [Hadamard product](https://en.wikipedia.org/wiki/Hadamard_product_(matrices)).
+The term of art for this particular matrix manipulation is a [Hadamard product](https://en.wikipedia.org/wiki/Hadamard_product_(matrices)). 
+
+These toy matrices are a useful heuristic to introduce the ND4J interface as well as basic ideas in linear algebra. This framework, however, is built to handle billions of parameters in n dimensions (and beyond...).
+
+Next, we'll look at [vectorwise operations](../vectorwise.html). 
