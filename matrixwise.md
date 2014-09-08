@@ -5,7 +5,7 @@ description: ""
 ---
 {% include JB/setup %}
 
-Elementwise operations are more intuitive than vectorwise operations, because the elements of one matrix map clearly onto the other, and to obtain the result, you have to perform just one arithmatical operation. 
+Elementwise operations are more intuitive than vectorwise operations, because the elements of one matrix map clearly onto the other, and to obtain the result, you have to perform just one arithmatical operation. (The example code [lives here](https://github.com/SkymindIO/nd4j/blob/master/nd4j-examples/src/main/java/org/nd4j/examples/MatrixOperationExample.java).)
 
 With vectorwise matrix operations, you will have to first build intuition and also perform multiple steps. There are two basic types of matrix multiplication: inner (dot) product and outer product. The inner product results in a matrix of reduced dimensions, the outer product results in one of expanded dimensions. A helpful mnemonic: Expand **out**ward, contract **in**ward. 
 
