@@ -62,3 +62,28 @@ This is straight view of an arbitrary nd-array. You can go through the nd-array 
     nd2.linearView();
     
     [1.0 ,2.0 ,3.0 ,4.0 ,5.0 ,6.0 ,7.0 ,8.0 ,9.0 ,10.0 ,11.0 ,12.0]
+
+### Broadcast
+
+Broadcast is advanced. It usually happens in the background without having to be called. The simplest way to understand it is by working with one long row vector, like the one above. 
+
+     nd2 = Nd4j.create(new float[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12});
+     
+Broadcasting will actually take multiple copies of that row vector and put them together into a larger matrix. The first parameter is the number of copies you want "broadcast," as well as the number of rows involved. In order not to throw a compiler error, make the second parameter of broadcast equal to the number of elements in your row vector.
+
+     nd2.broadcast(new int[]{3,12}); 
+     
+     [1.0 ,4.0 ,7.0 ,10.0 ,1.0 ,4.0 ,7.0 ,10.0 ,1.0 ,4.0 ,7.0 ,10.0]
+     [2.0 ,5.0 ,8.0 ,11.0 ,2.0 ,5.0 ,8.0 ,11.0 ,2.0 ,5.0 ,8.0 ,11.0]
+     [3.0 ,6.0 ,9.0 ,12.0 ,3.0 ,6.0 ,9.0 ,12.0 ,3.0 ,6.0 ,9.0 ,12.0]
+     
+     nd2.broadcast(new int[]{6,12}); 
+
+     [1.0 ,7.0 ,1.0 ,7.0 ,1.0 ,7.0 ,1.0 ,7.0 ,1.0 ,7.0 ,1.0 ,7.0]
+     [2.0 ,8.0 ,2.0 ,8.0 ,2.0 ,8.0 ,2.0 ,8.0 ,2.0 ,8.0 ,2.0 ,8.0]
+     [3.0 ,9.0 ,3.0 ,9.0 ,3.0 ,9.0 ,3.0 ,9.0 ,3.0 ,9.0 ,3.0 ,9.0]
+     [4.0 ,10.0 ,4.0 ,10.0 ,4.0 ,10.0 ,4.0 ,10.0 ,4.0 ,10.0 ,4.0 ,10.0]
+     [5.0 ,11.0 ,5.0 ,11.0 ,5.0 ,11.0 ,5.0 ,11.0 ,5.0 ,11.0 ,5.0 ,11.0]
+     [6.0 ,12.0 ,6.0 ,12.0 ,6.0 ,12.0 ,6.0 ,12.0 ,6.0 ,12.0 ,6.0 ,12.0]
+     
+
