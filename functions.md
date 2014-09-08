@@ -16,7 +16,7 @@ Here's the [example code](https://github.com/SkymindIO/nd4j/blob/master/nd4j-exa
 
 ### Sigmoid
 
-Sigmoid is a mathematical funciton in the shape of an S, or sigmoid curve, which normalizes data to a range between -1 and 1, so that it can be understood in terms of probabilities. Sigmoid functions are one of several activation functions used for [artificial neurons](http://deeplearning4j.org/). 
+[Sigmoid](https://en.wikipedia.org/wiki/Sigmoid_function) is a mathematical function in the shape of an S, or sigmoid curve, which normalizes data to a range between -1 and 1, so that it can be understood in terms of probabilities. Sigmoid functions are one of several activation functions used for [artificial neurons](http://deeplearning4j.org/). 
 
     ndv = sigmoid(nd);
 
@@ -27,7 +27,7 @@ Here's what Sigmoid should return for the above array
 
 ### Tanh
 
-Tanh -- pronounced "tan H" -- is a hyperbolic trigonometric function, the hyperbolic tangent, which like Sigmoid serves as a transform to activate artificial neurons, among other uses. It resembles a windblown S. 
+Tanh -- pronounced "tan H" -- is a [hyperbolic trigonometric function](https://en.wikipedia.org/wiki/Hyperbolic_function), the hyperbolic tangent, which like Sigmoid serves as a transform to activate artificial neurons, among other uses. Calling tanh performs an elementwise operation on the nd-array. Its graphical representation resembles a windblown S. 
 
      ndv = tanh(nd);
      
