@@ -11,8 +11,8 @@ A static import at the top of your Java file makes advanced functions fairly sim
 
 Here's the [example code](https://github.com/SkymindIO/nd4j/blob/master/nd4j-examples/src/main/java/org/nd4j/examples/FunctionsExample.java). That done, create your arrays and call a function on them.
 
-    INDArray nd2 = Nd4j.create(new float[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}, new int[]{2, 6});
-    INDArray ndv;
+        INDArray nd2 = Nd4j.create(new float[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, -6, -8}, new int[]{2, 7});
+        INDArray ndv;
 
 ### Sigmoid
 
@@ -27,5 +27,19 @@ Here's what Sigmoid should return for the above array
 
 ### Tanh
 
+
+
 ### Absolute Value
+
+Absolute Value returns the distance of an element from zero, regardless of its positive or negative value.
+
+     abs(nd2);
+
+So the nd2 array created above should appear like this after absolute value is performed on it
+
+     [1.0 ,3.0 ,5.0 ,7.0 ,9.0 ,11.0 ,6.0]
+     [2.0 ,4.0 ,6.0 ,8.0 ,10.0 ,12.0 ,8.0]   
+
+
+    
 
