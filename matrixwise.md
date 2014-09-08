@@ -56,4 +56,4 @@ Taking the outer product of the two vectors we first worked with is as simple as
      [3.0]                [(3.0 * 1.0), (3.0 * 2.0)   [3.0 ,6.0]   [3.0]   [1.0 ,2.0] 
      [4.0] * [1.0 ,2.0] =  (4.0 * 1.0), (4.0 * 2.0) = [4.0 ,8.0] = [4.0] * [1.0 ,2.0] 
      
-It turns out the multiplying nd2 by nd is the same as multiplying it by two nd's stacked on top of each other. That's an outer product. 
+It turns out the multiplying nd2 by nd is the same as multiplying it by two nd's stacked on top of each other. That's an outer product. As you can see, outer products also require fewer operations, since they don't combine two products into one element in the final matrix. 
