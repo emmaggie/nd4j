@@ -5,7 +5,7 @@ description: ""
 ---
 {% include JB/setup %}
 
-* ND4J requires [Java 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) or above.
+* ND4J requires [Java 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html).
 
 * You can install ND4J either from source or from Maven central. Here are the **source** instructions. 
 
@@ -46,11 +46,9 @@ description: ""
 
          mvn clean install -DskipTests
 
-* After you run "mvn clean", a compressed tar file with a name similar to *TKTKTK* --> "nd4j-dist-bin.tar.gz" will be installed in the local folder (This is where you will find the jar files and it's where compiling happens.):
-
-		*/nd4j/TKTKTKTKTKTK
+* After you run "mvn clean", you will find ND4J jar files the local folder, which is where the compiling happens.:
 	
-* Add the coordinates below to your Project Object Model (POM) file (POM.xml files live in the root of a given directory):
+* Add the coordinates below to your Project Object Model (POM) file (POM.xml files live in the root of a given project):
 
          <repositories>
              <repository>
@@ -63,27 +61,30 @@ description: ""
 
 * All dependencies should be added after the tags "dependencyManagement" and "dependencies", and before they close. Add this dependency to your POM file:
 
-         <dependency>
-			<groupId>org.nd4j</groupId>
-			<artifactId>nd4j</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-         </dependency>
+	    <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
 
-* To locally install Jcublas, which does linear algebra for GPUs, first enter these commands:
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>18.0</version>
+            </dependency>
 
-		git clone git@github.com:MysterionRise/mavenized-jcuda.git
-		cd mavenized-jcuda && mvn clean install -DskipTests
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
 
-Then include linear-algebra-jcublas in your POM:
-
-           <dependency>
-             <groupId>org.nd4j</groupId>
-             <artifactId>linear-algebra-jcublas</artifactId>
-             <version>0.0.1-SNAPSHOT</version>
-           </dependency>
-
-For the moment, the installation is throwing errors related to Jcublas. (We're working on it :) GPU integration is being completed. The final two steps for Jcublas are only for building the software. 
-
-**NEXT STEP**: 
+**NEXT STEP**: Now you're ready to run the examples cited in our [documentation](../documentation.html).
 
 **The curious** will want to examine our [Github repo](https://github.com/agibsonccc/nd4j) or access the core through [Maven](http://maven.apache.org/download.cgi).
