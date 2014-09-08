@@ -5,11 +5,13 @@ description: ""
 ---
 {% include JB/setup %}
 
-The basic operations of linear algebra are matrix creation, addition and multiplication. This guide will show you how to perform those operations with ND4J. (The example code [lives here](https://github.com/SkymindIO/nd4j/blob/master/nd4j-examples/src/main/java/org/nd4j/examples/ElementWiseOperationExample.java).)
+The basic operations of linear algebra are matrix creation, addition and multiplication. This guide will show you how to perform those operations with ND4J, as well as various advanced transforms. 
 
 * [Matrix Operations](../matrixwise.html)
 * [Reshape/Transpose Matrices](../reshapetranspose.html)
 * [Functions](../functions.html)
+
+(The example code for elementwise operations [lives here](https://github.com/SkymindIO/nd4j/blob/master/nd4j-examples/src/main/java/org/nd4j/examples/ElementWiseOperationExample.java).)
 
 The Java code below will create a simple 2 x 2 matrix, populate it with integers, and place it in the nd-array variable nd:
 
