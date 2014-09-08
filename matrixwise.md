@@ -70,3 +70,5 @@ which is the same as this line
      ndv = nd.mmul(nd2);
 
 Using the second parameter to specify the nd-array to which the product should be assigned is a convention common in ND4J. 
+
+To learn about transposing and reshaping matrices with ND4J, [click here](../reshapetranspose.html).
