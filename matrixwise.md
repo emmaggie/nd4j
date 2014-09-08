@@ -13,8 +13,8 @@ With vectorwise matrix operations, you will have to first build intuition and al
 
 Unlike Hadamard products, which require that both matrices have equal rows and columns, inner products simply require that the number of columns of the first matrix equal the number of rows of the second. For example, this works
 
-               [3.0]
-  [1.0 ,2.0] * [4.0] = (1.0 * 3.0) + (2.0 * 4.0) = 11
+                 [3.0]
+    [1.0 ,2.0] * [4.0] = (1.0 * 3.0) + (2.0 * 4.0) = 11
   
 Notice a 1 x 2 row times a 2 x 1 column produces a scalar. This operation reduces the dimensions to 1,1. You can imagine rotating the row vector [1.0 ,2.0] clockwise to stand on its end, placed against the column vector. The two top elements are then multiplied by each other, as are the bottom two, and the two products are added to consolidate in a single scalar.
 
@@ -32,15 +32,15 @@ Notice ND4J code mirrors the equation in that nd * nd2 is row vector times colum
 Now let's take the same operation, while adding an additional column to a new array we'll call nd4.
 
     INDArray nd4 = Nd4j.create(new float[]{3,4,5,6},new int[]{2, 2}); 
-    nd.mmul(nd4);
-
-                 [3.0 ,5.0]
+    nd.mmul(nd4);                                                                                                                                                                                                                                                   
+    [3.0 ,5.0]
     [1.0 ,2.0] * [4.0 ,6.0] = [(1.0 * 3.0) + (2.0 * 4.0), (1.0 * 5.0) + (2.0 * 6.0)] = [11, 17]
 
 Now let's add an extra row to the first matrix, call it nd3, and multiply it by nd4
 
     INDArray nd3 = Nd4j.create(new float[]{1,3,2,4},new int[]{2,2});
     nd3.mmul(nd4); 
+    
 
 The equation will look like this
 
