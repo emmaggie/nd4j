@@ -86,4 +86,4 @@ Broadcasting will actually take multiple copies of that row vector and put them 
      [5.0 ,11.0 ,5.0 ,11.0 ,5.0 ,11.0 ,5.0 ,11.0 ,5.0 ,11.0 ,5.0 ,11.0]
      [6.0 ,12.0 ,6.0 ,12.0 ,6.0 ,12.0 ,6.0 ,12.0 ,6.0 ,12.0 ,6.0 ,12.0]
      
-
+For various other matrix transforms, see our page on [Functions](../functions.html).
