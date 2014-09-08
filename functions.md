@@ -62,3 +62,5 @@ produces this result
 
      [1.0 ,1.7320508 ,2.236068 ,2.6457512 ,3.0 ,3.3166249]
      [1.4142135 ,2.0 ,2.4494898 ,2.828427 ,3.1622777 ,3.4641016]
+     
+These are just a few of the functions available in ND4J. 
