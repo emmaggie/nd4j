@@ -41,7 +41,6 @@ Now let's add an extra row to the first matrix, call it nd3, and multiply it by 
     INDArray nd3 = Nd4j.create(new float[]{1,3,2,4},new int[]{2,2});
     nd3.mmul(nd4); 
     
-
 The equation will look like this
 
     [1.0 ,2.0]   [3.0 ,5.0]   [(1.0 * 3.0) + (2.0 * 4.0), (1.0 * 5.0) + (2.0 * 6.0),    [11, 17]
@@ -57,3 +56,17 @@ Taking the outer product of the two vectors we first worked with is as simple as
      [4.0] * [1.0 ,2.0] =  (4.0 * 1.0), (4.0 * 2.0) = [4.0 ,8.0] = [4.0] * [1.0 ,2.0] 
      
 It turns out the multiplying nd2 by nd is the same as multiplying it by two nd's stacked on top of each other. That's an outer product. As you can see, outer products also require fewer operations, since they don't combine two products into one element in the final matrix. 
+
+A few aspects of ND4J code should be noted here. Firstly, the method mmul takes two parameters.
+
+     nd.mmul(MATRIX TO MULTIPLY WITH, MATRIX TO WHICH THE PRODUCT SHOULD BE ASSIGNED);
+
+which could be expressed like this
+
+     nd.mmul(nd2, ndv);
+
+which is the same as this line
+
+     ndv = nd.mmul(nd2);
+
+Using the second parameter to specify the nd-array to which the product should be assigned is a convention common in ND4J. 
