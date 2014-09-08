@@ -5,7 +5,7 @@ description: ""
 ---
 {% include JB/setup %}
 
-Advanced functions are fairly easy to use with ND4J, and a static import at the top of the file makes them even easier:
+A static import at the top of your Java file makes advanced functions fairly simple to use with ND4J:
 
     import static org.nd4j.linalg.ops.transforms.Transforms.*;
 
