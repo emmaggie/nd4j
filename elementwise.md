@@ -164,4 +164,4 @@ The term of art for this particular matrix manipulation is a [Hadamard product](
 
 These toy matrices are a useful heuristic to introduce the ND4J interface as well as basic ideas in linear algebra. This framework, however, is built to handle billions of parameters in n dimensions (and beyond...).
 
-Next, we'll look at [vectorwise operations](../vectorwise.html). 
+Next, we'll look at more complicated [matrix operations](../matrixwise.html). 
