@@ -59,31 +59,33 @@ description: ""
              </repository>
          </repositories>
 
-* All dependencies should be added after the tags "dependencyManagement" and "dependencies", and before they close. Add this dependency to your POM file:
 
-	    <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-log4j12</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
+For using Nd4j in your project, you need an implementation:
 
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>18.0</version>
-            </dependency>
+                  <dependency>
+                  <groupId>org.nd4j</groupId>
+          <artifactId>nd4j-api</artifactId>
+          <version>0.0.1-SNAPSHOT</version>
+                 </dependency>
 
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
-                <scope>test</scope>
-            </dependency>
+and then define:
+
+             <dependency>
+            <artifactId>nd4j</artifactId>
+             <groupId>org.nd4j</groupId>
+             <artifactId>nd4j-jblas</artifactId>
+              <version>0.0.1-SNAPSHOT</version>
+               </dependency>
+
+or:
+
+              <dependency>
+             <groupId>org.nd4j</groupId>
+            <artifactId>nd4j-jcublas</artifactId>
+              <version>0.0.1-SNAPSHOT</version>
+              </dependency>
+
+	    
 
 **NEXT STEP**: Now you're ready to run the examples cited in our [documentation](../documentation.html).
 
