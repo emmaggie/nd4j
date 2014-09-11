@@ -46,46 +46,50 @@ description: ""
 
          mvn clean install -DskipTests
 
-* After you run "mvn clean", you will find ND4J jar files the local folder, which is where the compiling happens.:
+* After you run "mvn clean", you will find ND4J jar files the local folder, which is where the compiling happens.
 	
-* Add the coordinates below to your Project Object Model (POM) file (POM.xml files live in the root of a given project):
-
-         <repositories>
-             <repository>
-                 <id>snapshots-repo</id>
-                 <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-                 <releases><enabled>false</enabled></releases>
-                 <snapshots><enabled>true</enabled></snapshots>
-             </repository>
-         </repositories>
+* Include the following in your pom.xml:
 
 
-For using Nd4j in your project, you need an implementation:
+       <dependency>
+        <artifactId>nd4j</artifactId>
+        <groupId>org.nd4j</groupId>
+        <artifactId>nd4j-api</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+       </dependency>
 
-                  <dependency>
-                  <groupId>org.nd4j</groupId>
-          <artifactId>nd4j-api</artifactId>
-          <version>0.0.1-SNAPSHOT</version>
-                 </dependency>
+From here, you need to pick an implementation suitable for your needs. This can be either jblas for native or cuda for GPUs.
 
-and then define:
+
+Jblas:
 
              <dependency>
-            <artifactId>nd4j</artifactId>
-             <groupId>org.nd4j</groupId>
-             <artifactId>nd4j-jblas</artifactId>
-              <version>0.0.1-SNAPSHOT</version>
+                <artifactId>nd4j</artifactId>
+                <groupId>org.nd4j</groupId>
+                <artifactId>nd4j-jblas</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
                </dependency>
 
-or:
+Jcuda:
 
-              <dependency>
-             <groupId>org.nd4j</groupId>
-            <artifactId>nd4j-jcublas</artifactId>
-              <version>0.0.1-SNAPSHOT</version>
-              </dependency>
+                    <dependency>
+                       <artifactId>nd4j</artifactId>
+                       <groupId>org.nd4j</groupId>
+                       <artifactId>nd4j-jcublas</artifactId>
+                       <version>0.0.1-SNAPSHOT</version>
+                      </dependency>
 
-	    
+For Jcuda, we are still in the process of streamlining the release for this one. For now, please do the following:
+
+
+                  git clone https://github.com/SkymindIO/mavenized-jcuda
+                  cd mavenized-jcuda
+                  mvn clean install
+
+
+This will install the Jcuda jar files.
+
+You need to specify a version of Jcuda to use as well. The version will depend on your GPU. Amazon supports 0.5.5.
 
 **NEXT STEP**: Now you're ready to run the examples cited in our [documentation](../documentation.html).
 
