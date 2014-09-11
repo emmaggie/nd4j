@@ -7,7 +7,7 @@ description: ""
 
 * ND4J requires [Java 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html).
 
-* You can install ND4J either from source or from Maven central. Here are the **source** instructions. 
+* You can install ND4J either from source or from Maven central. Either way you do it, you need to run this git command and cd into an ND4J working directory. 
 
          git clone https://github.com/agibsonccc/nd4j
          cd nd4j
@@ -20,19 +20,19 @@ description: ""
 
 * Unzip the download, move it to your applications folder, and open the application. Upon opening, you may be prompted to install a Java SE 6 runtime. If so, install it. 
 
-* As you open IntelliJ, you will have to choose whether to create or open a project. Choose "Open Project" from the menu, and then select the working directory for Deeplearning4j. Mine was "java-deeplearning". Click the open button for that folder. (It will take a while for all the dependencies to be resolved, during which time you will not be able to run your examples.)
+* As you open IntelliJ, you will have to choose whether to create or open a project. Choose "Open Project" from the menu, and then select the working directory for ND4J. Click the open button for that folder. (It will take a while for all the dependencies to be resolved, during which time you will not be able to run your examples.)
 
 ![Alt text](../img/open_project.png) 
 
-* You'll need to make sure the Maven 2 Integration plugin is installed. On Macs, go to Preferences and then click on Plugins. (On Linux, you'll find the plugins in Settings.) Then choose "Browse Repositories" and search for "Maven 2 Integration." Install that plugin and restart IntelliJ. Restarting should take you back to your java-deeplearning project. 
+* You'll need to make sure the Maven 2 Integration plugin is installed. On Macs, go to Preferences and then click on Plugins. (On Linux, you'll find the plugins in Settings.) Then choose "Browse Repositories" and search for "Maven 2 Integration." Install that plugin and restart IntelliJ. Restarting should take you back to your ND4J project. 
 
-* Click through the folder names to the examples folder -- java-deeplearning/deeplearning4j-examples/src/main/java/org/deeplearning4j/example/ -- and then right-click on the dataset you're interested in. (MNIST is where most users start.) There, you will find a number of nets that will run on MNIST. Right click on RBMMnistExample. In the menu that appears, look for the green arrow and choose "Run." 
+* Click through the folder names to the examples folder -- nd4j/tree/master/nd4j-examples/src/main/java/org/nd4j/examples -- and then right-click on the dataset you're interested in. (MNIST is where most users start.) There, you will find a number of nets that will run on MNIST. Right click on RBMMnistExample. In the menu that appears, look for the green arrow and choose "Run." 
 
 ![Alt text](../img/run_menu.png)
 
 * Any warning messages will appear at the top of the screen. If IntelliJ prompts you to add an SDK, choose JDK.
 
-### Maven
+### The Maven Alternative to Source
 
 * To check if you have Maven on your machine, type this in the terminal/cmd:
 
@@ -87,4 +87,4 @@ description: ""
 
 **NEXT STEP**: Now you're ready to run the examples cited in our [documentation](../documentation.html).
 
-**The curious** will want to examine our [Github repo](https://github.com/agibsonccc/nd4j) or access the core through [Maven](http://maven.apache.org/download.cgi).
+**The curious** will want to examine our [Github repo](https://github.com/SkymindIO/nd4j) or access the core through [Maven](http://maven.apache.org/download.cgi).
