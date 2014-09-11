@@ -63,4 +63,15 @@ produces this result
      [1.0 ,1.7320508 ,2.236068 ,2.6457512 ,3.0 ,3.3166249]
      [1.4142135 ,2.0 ,2.4494898 ,2.828427 ,3.1622777 ,3.4641016]
      
+### [Exponential function](https://en.wikipedia.org/wiki/Exponential_function)
+
+Euler's number e, which is about 2.718281828, is a number for which e^x is its own derivative. Performing exp on nd
+
+      exp(nd);
+
+Should give you this
+
+      [2.7182817 ,20.085537 ,148.41316 ,1096.6332 ,8103.084 ,59874.14]
+      [7.389056 ,54.59815 ,403.4288 ,2980.958 ,22026.465 ,162754.8]
+
 These are just a few of the functions available in ND4J. 
