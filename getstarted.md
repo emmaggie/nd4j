@@ -91,6 +91,6 @@ This will install the Jcuda jar files.
 
 You need to specify a version of Jcuda to use as well. The version will depend on your GPU. Amazon supports 0.5.5.
 
-**NEXT STEP**: Now you're ready to run the examples cited in our [documentation](../documentation.html).
+**NEXT STEP**: Now you're ready to run the examples cited in our [documentation](../elementwise.html).
 
 **The curious** will want to examine our [Github repo](https://github.com/SkymindIO/nd4j) or access the core through [Maven](http://maven.apache.org/download.cgi).
